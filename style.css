@@ -17,15 +17,39 @@ body {
   background-color: #010515;
 }
 
-button.ripple {
+button {
+  position: relative;
   font-family: inherit;
   font-weight: 700px;
   font-size: 16px;
   padding: 12px 18px;
   background-color: #8602cd;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #8602cd;
   cursor: pointer;
   color: #fff;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+button .circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+  border-radius: 50%;
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
